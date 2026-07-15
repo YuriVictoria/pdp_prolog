@@ -67,7 +67,7 @@ avó(X,Y) :- mulher(X), mae(X,Z), (pai(Z,Y);mae(Z,Y)).
 
 % a)
 % feliz(Pessoa)
-feliz(X) :- pai(X,_),!;mae(X,_),!.
+feliz(X) :- pai(X,_);mae(X,_).
 
 % b)
 % casal(Pessoa 1, Pessoa 2)
