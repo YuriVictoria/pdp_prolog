@@ -107,4 +107,66 @@ pessoa(ary, m, 25, 1.72, 68.9).
 % c)
 % ?- pessoa(X,_,_,AlturaX,_),pessoa(Y,_,_,AlturaY,_),casal(X,Y),((homem(X),AlturaX>AlturaY);(homem(Y),AlturaY>AlturaX))
 
+% QUESTÃO 5
 
+joga(ana,volei).
+joga(bia,tenis).
+joga(ivo,basquete).
+joga(eva,volei).
+joga(leo,tenis).
+
+% a) ?- joga(P,X), joga(leo,X), P\=leo.
+
+% 1 ?- trace,joga(P,X), joga(leo,X), P\=leo.
+%    Call: (11) joga(_6406, _6408) ? creep
+%    Exit: (11) joga(ana, volei) ? creep
+%    Call: (11) joga(leo, volei) ? creep
+%    Fail: (11) joga(leo, volei) ? creep
+%    Redo: (11) joga(_6406, _6408) ? creep
+%    Exit: (11) joga(bia, tenis) ? creep
+%    Call: (11) joga(leo, tenis) ? creep
+%    Exit: (11) joga(leo, tenis) ? creep
+%    Call: (11) bia\=leo ? creep
+%    Exit: (11) bia\=leo ? creep
+% P = bia,
+% X = tenis ;
+%    Redo: (11) joga(_6406, _6408) ? creep
+%    Exit: (11) joga(ivo, basquete) ? creep
+%    Call: (11) joga(leo, basquete) ? creep
+%    Fail: (11) joga(leo, basquete) ? creep
+%    Redo: (11) joga(_6406, _6408) ? creep
+%    Exit: (11) joga(eva, volei) ? creep
+%    Call: (11) joga(leo, volei) ? creep
+%    Fail: (11) joga(leo, volei) ? creep
+%    Redo: (11) joga(_6406, _6408) ? creep
+%    Exit: (11) joga(leo, tenis) ? creep
+%    Call: (11) joga(leo, tenis) ? creep
+%    Exit: (11) joga(leo, tenis) ? creep
+%    Call: (11) leo\=leo ? creep
+%    Fail: (11) leo\=leo ? creep
+% false.
+
+% b) ?- joga(leo,X), joga(P,X), P\=leo.
+
+% [trace] 2 ?- trace, joga(leo,X), joga(P,X), P\=leo.
+%    Call: (11) joga(leo, _218) ? creep
+%    Exit: (11) joga(leo, tenis) ? creep
+%    Call: (11) joga(_222, tenis) ? creep
+%    Exit: (11) joga(bia, tenis) ? creep
+%    Call: (11) bia\=leo ? creep
+%    Exit: (11) bia\=leo ? creep
+% X = tenis,
+% P = bia ;
+%    Redo: (11) joga(_222, tenis) ? creep
+%    Exit: (11) joga(leo, tenis) ? creep
+%    Call: (11) leo\=leo ? creep
+%    Fail: (11) leo\=leo ? creep
+% false.
+
+% Explicação: Na chama consulta da letra A ele 
+% consulta todos os pessoas e seus respectivos esportes
+% e compara com o leo o que é muito mais custo do que a
+% segunda consulta que já começa com o esporte de leo o
+% que faz com que ele procure apenas pessoas que jogam
+% o esporte de leo o que é muito mais rápido, fato que
+% pode ser percebido na árvore.
