@@ -170,3 +170,9 @@ joga(leo,tenis).
 % que faz com que ele procure apenas pessoas que jogam
 % o esporte de leo o que é muito mais rápido, fato que
 % pode ser percebido na árvore.
+
+% QUESTÃO 6
+
+num(N,positivo) :- N>0,!.
+num(0,nulo),!.
+num(N,negativo) :- N<0,!.
