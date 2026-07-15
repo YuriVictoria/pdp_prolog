@@ -174,5 +174,5 @@ joga(leo,tenis).
 % QUESTÃO 6
 
 num(N,positivo) :- N>0,!.
-num(0,nulo),!.
-num(N,negativo) :- N<0,!.
+num(0,nulo) :- !.
+num(N,negativo) :- N<0.
