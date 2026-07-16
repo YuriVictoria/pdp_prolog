@@ -176,3 +176,12 @@ joga(leo,tenis).
 num(N,positivo) :- N>0,!.
 num(0,nulo) :- !.
 num(N,negativo) :- N<0.
+
+% QUESTÃO 7
+
+mult(_,0,0). % Base
+mult(X,Y,P_atual) :- Y>0, M is Y-1, mult(X,M,P_ant), P_atual is X+P_ant. % Passo
+
+% QUESTÃO 9
+
+% Sentido único
