@@ -182,6 +182,13 @@ num(N,negativo) :- N<0.
 mult(_,0,0). % Base
 mult(X,Y,P_atual) :- Y>0, M is Y-1, mult(X,M,P_ant), P_atual is X+P_ant. % Passo
 
+% QUESTÃO 8
+
+bin(Num, Res) :- Num < 2, Res is Num. % Base
+bin(N, R) :- N >= 2, Temp is mod(N,2), bin(N//2, R_antes), R is (R_antes*10)+Temp. % Passo
+
 % QUESTÃO 9
+
+
 
 % Sentido único
