@@ -218,6 +218,11 @@ inv([], []).
 inv([H|T], R) :- inv(T, CaudaInvertida), anexa(CaudaInvertida, [H], R).
 
 % QUESTÃO 14
+:- dynamic lampada/1. 
 
+% Estado inicial
+lampada(apagada). 
+liga :- retract(lampada(_)), asserta(lampada(acesa)).
+desliga :- retract(lampada(_)), asserta(lampada(apagada)).
 
 % QUESTÃO 15
